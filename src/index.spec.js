@@ -96,12 +96,13 @@ describe('Sensor 요구사항 테스트', () => {
 
         const server = new IotServer();
         server.start([sensor]);
-
+        
         server.publish({
             deviceId: 'id1',
             actionId: 'CHANGE_REPORTING_INTERVAL',
             payload: 3000,
         });
+        
         expect(sensor.reportingInterval).toEqual(3000);
     });
 
@@ -119,7 +120,7 @@ describe('Sensor 요구사항 테스트', () => {
             actionId: 'CHANGE_REPORTING_INTERVAL',
             payload: 3000,
         });
-
+        
         expect(sensor.reportingInterval).toEqual(10000);
     });
 });
